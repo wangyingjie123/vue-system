@@ -1,42 +1,55 @@
-# vueAdmin-template
+# vue-cli3-optimization
 
-> A minimal vue admin template with Element UI & axios & iconfont & permission control & lint
+> 基于 `vue-cli@3` 做的关于 `CDN` + `Gzip` + `Prerender` + `Sass` 的优化。在基于 `vue-cli@2` 的项目 [vue-optimization](https://github.com/HaoChuan9421/vue-optimization) 里已经对这些优化方案做了详细说明。你也可以阅读我的这篇[博客](https://juejin.im/post/5b97b84ee51d450e6c7492f6)。这个仓库旨在展示最终的优化结果，细节可以通过查看 `git` 历史了解，相应的地方也有详细注释。
 
-**Live demo:** http://panjiachen.github.io/vueAdmin-template
+### 创建时的预设，详情参见`.vuerc`
 
-[中文文档](https://github.com/PanJiaChen/vueAdmin-template/blob/master/README-zh.md)
-
-## Build Setup
-
-``` bash
-
-# Clone project
-git clone https://github.com/PanJiaChen/vueAdmin-template.git
-
-# Install dependencies
-npm install
-
-# serve with hot reload at localhost:9528
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
+```json
+{
+  "packageManager": "npm",
+  "useTaobaoRegistry": false,
+  "presets": {
+    "vue-optimization": {
+      "useConfigFiles": true,
+      "plugins": {
+        "@vue/cli-plugin-babel": {},
+        "@vue/cli-plugin-eslint": {
+          "config": "standard",
+          "lintOn": [
+            "save"
+          ]
+        }
+      },
+      "router": true,
+      "routerHistoryMode": true,
+      "vuex": true,
+      "cssPreprocessor": "sass"
+    }
+  }
+}
 ```
 
-## Demo
-![demo](https://github.com/PanJiaChen/PanJiaChen.github.io/blob/master/images/demo.gif)
+## Project setup
+```
+npm install
+```
 
-## Extra
-If you want router permission && generate menu by user role , you can use this branch [permission-control](https://github.com/PanJiaChen/vueAdmin-template/tree/permission-control)
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
 
-## Related Project
- [vue-element-admin](https://github.com/PanJiaChen/vue-element-admin)
+### Compiles and minifies for production
+```
+npm run build
+```
 
- [electron-vue-admin](https://github.com/PanJiaChen/electron-vue-admin)
+### Run your tests
+```
+npm run test
+```
 
-
-## License
-[MIT](https://github.com/PanJiaChen/vueAdmin-template/blob/master/LICENSE) license.
+### Lints and fixes files
+```
+npm run lint
+```
